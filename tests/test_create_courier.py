@@ -4,16 +4,14 @@ import data
 class TestCreateCourier:
     
     @allure.title('Успешное создание курьера')
-    def test_create_courier_success(self, api_client, courier_payload, cleanup_courier):
-        cleanup_courier.append(courier_payload)
+    def test_create_courier_success(self, api_client, courier_payload):
         response = api_client.create_courier(courier_payload)
         
         assert response.status_code == 201
         assert response.json() == data.SUCCESS_COURIER_CREATE
 
     @allure.title('Ошибка создания двух одинаковых курьеров')
-    def test_create_courier_twice_error(self, api_client, courier_payload, cleanup_courier):
-        cleanup_courier.append(courier_payload)
+    def test_create_courier_twice_error(self, api_client, courier_payload):
         api_client.create_courier(courier_payload)
         duplicate_response = api_client.create_courier(courier_payload)
 
