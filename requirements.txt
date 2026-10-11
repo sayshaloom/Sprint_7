@@ -1,0 +1,11 @@
+# Тестовый фреймворк
+pytest
+
+# HTTP-клиент
+requests
+
+# Генерация тестовых данных
+faker
+
+# Отчеты Allure
+allure-pytest
